@@ -36,7 +36,6 @@ class CustomerController extends Controller
         return $this->service->getCustomer($reference);
     }
 
-
     public  function update(Request $request)
     {
         $payload = $request->all();
