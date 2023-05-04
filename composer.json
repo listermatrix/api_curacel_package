@@ -1,0 +1,13 @@
+{
+    "name": "jetstream/curacel",
+    "description": "A package that integrates Curacel API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            " \\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
