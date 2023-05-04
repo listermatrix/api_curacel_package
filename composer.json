@@ -9,5 +9,7 @@
         }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "10.2.x-dev"
+    }
 }
