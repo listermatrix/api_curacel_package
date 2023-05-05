@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
- phpunit.xml
+phpunit.xml
 .env
 .env.backup
 .env.test
