@@ -3,9 +3,11 @@
 /public/storage
 /storage/*.key
 /vendor
+ phpunit.xml
 .env
 .env.backup
 .env.test
+.env.testing
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
