@@ -11,9 +11,6 @@
   </testsuites>
   <php>
       <env name="DB_CONNECTION" value="testing"/>
-      <env name="APP_KEY" value="base64:2fl+Ktvkfl+Fuz4Qp/A75G2RTiWVA/ZoKZvp6fiiM10="/>
-      <env name="CURACEL_BASE_URL" value="https://api.playbox.grow.curacel.co/api/v1"/>
-      <env name="CURACEL_API_KEY" value="602|mCtr6LTQiJFgqFAi7O7qER8RhCjjYHTE3dNhXgLI"/>
   </php>
   <source>
     <include>
