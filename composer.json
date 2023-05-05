@@ -5,11 +5,27 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            " \\": "src/"
+            "Jetstream\\Curacel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jetstream\\Curacel\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require-dev": {
-        "phpunit/phpunit": "10.2.x-dev"
+        "phpunit/phpunit": "10.2.x-dev",
+        "orchestra/testbench": "dev-develop",
+        "nunomaduro/collision": "^7.4"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php vendor/bin/testbench package:discover --ansi"
+        ]
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
     }
 }

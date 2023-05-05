@@ -2,9 +2,9 @@
 
 namespace Jetstream\Curacel\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use GuzzleHttp\Exception\GuzzleException;
+//use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 
 class CustomerController extends Controller
@@ -18,12 +18,10 @@ class CustomerController extends Controller
 
     public  function index()
     {
-        return $this->service->getCustomers();
+        return $this->service->getAllCustomers();
     }
 
-    /**
-     * @throws GuzzleException
-     */
+
     public  function create(Request $request)
     {
         $payload = $request->all();
