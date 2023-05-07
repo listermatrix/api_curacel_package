@@ -81,7 +81,6 @@ class CustomerTest extends TestCase
         $this->assertCount(1, $responseArray);
     }
 
-
     public function test_creat_customer()
     {
         $customerReference  = uniqid();

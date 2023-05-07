@@ -8,7 +8,7 @@ use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 
-class CustomerApi implements ICustomerService
+class CustomerService extends CuracelApi implements ICustomerService
 {
     /**
      * @var Repository|Application|\Illuminate\Foundation\Application|mixed
@@ -21,19 +21,13 @@ class CustomerApi implements ICustomerService
     /**
      * @var array|string[]
      */
-    private array|\Illuminate\Http\Client\PendingRequest $httpClient;
-    private string $basePath;
+    protected array|\Illuminate\Http\Client\PendingRequest $httpClient;
+    private string $path;
 
     public function __construct()
     {
-        $this->basePath = '/customers';
-        $this->basUrl = config('curacel.base_url');
-        $this->key = config('curacel.api_key');
-        $this->httpClient  =  Http::baseUrl($this->basUrl)->withHeaders([
-            'Accept' => 'application/json',
-            'Authorization' => "Bearer $this->key"
-        ]);
-
+        parent::__construct();
+        $this->path = '/customers';
     }
 
     /**
@@ -41,7 +35,7 @@ class CustomerApi implements ICustomerService
      */
     public function getAllCustomers()
     {
-        return $this->httpClient->get($this->basePath)->throw()->json();
+        return $this->get($this->path)->throw()->json();
     }
 
     /**
@@ -49,7 +43,7 @@ class CustomerApi implements ICustomerService
      */
     public function getCustomer($reference)
     {
-        return $this->httpClient->get("{$this->basePath}/".$reference)->throw()->json();
+        return $this->httpClient->get("{$this->path}/".$reference)->throw()->json();
     }
 
     /**
@@ -57,7 +51,7 @@ class CustomerApi implements ICustomerService
      */
     public function createCustomer($payload)
     {
-        return $this->httpClient->post($this->basePath,$payload)->throw()->json();
+        return $this->httpClient->post($this->path,$payload)->throw()->json();
     }
 
     /**
@@ -65,7 +59,7 @@ class CustomerApi implements ICustomerService
      */
     public function updateCustomer($payload)
     {
-        return $this->httpClient->patch("{$this->basePath}/".$payload['ref'],$payload)->throw()->json();
+        return $this->httpClient->patch("{$this->path}/".$payload['ref'],$payload)->throw()->json();
     }
 
 
@@ -74,6 +68,6 @@ class CustomerApi implements ICustomerService
      */
     public function deleteCustomer($reference)
     {
-        return $this->httpClient->delete("{$this->basePath}/".$reference)->throw()->json();
+        return $this->httpClient->delete("{$this->path}/".$reference)->throw()->json();
     }
 }
