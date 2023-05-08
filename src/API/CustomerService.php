@@ -5,7 +5,7 @@ namespace Jetstream\Curacel\API;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Client\RequestException;
-use Illuminate\Support\Facades\Http;
+use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 
 class CustomerService extends CuracelApiConfig implements ICustomerService

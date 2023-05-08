@@ -1,6 +1,6 @@
 <?php
 
-namespace Jetstream\Curacel\API;
+namespace Jetstream\Curacel\API\Config;
 
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
