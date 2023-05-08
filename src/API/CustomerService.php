@@ -8,7 +8,7 @@ use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 
-class CustomerService extends CuracelApi implements ICustomerService
+class CustomerService extends CuracelApiConfig implements ICustomerService
 {
     /**
      * @var Repository|Application|\Illuminate\Foundation\Application|mixed
@@ -35,7 +35,7 @@ class CustomerService extends CuracelApi implements ICustomerService
      */
     public function getAllCustomers()
     {
-        return $this->get($this->path)->throw()->json();
+        return $this->get($this->path);
     }
 
     /**
@@ -43,7 +43,7 @@ class CustomerService extends CuracelApi implements ICustomerService
      */
     public function getCustomer($reference)
     {
-        return $this->httpClient->get("{$this->path}/".$reference)->throw()->json();
+        return $this->get("{$this->path}/".$reference);
     }
 
     /**
@@ -51,7 +51,7 @@ class CustomerService extends CuracelApi implements ICustomerService
      */
     public function createCustomer($payload)
     {
-        return $this->httpClient->post($this->path,$payload)->throw()->json();
+        return $this->post($this->path,$payload);
     }
 
     /**
@@ -59,7 +59,7 @@ class CustomerService extends CuracelApi implements ICustomerService
      */
     public function updateCustomer($payload)
     {
-        return $this->httpClient->patch("{$this->path}/".$payload['ref'],$payload)->throw()->json();
+        return $this->patch("{$this->path}/".$payload['ref'],$payload);
     }
 
 
@@ -68,6 +68,6 @@ class CustomerService extends CuracelApi implements ICustomerService
      */
     public function deleteCustomer($reference)
     {
-        return $this->httpClient->delete("{$this->path}/".$reference)->throw()->json();
+        return $this->delete("{$this->path}/".$reference);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 
-class CuracelApi
+class CuracelApiConfig
 {
     /**
      * @var Repository|Application|\Illuminate\Foundation\Application|mixed
@@ -46,7 +46,7 @@ class CuracelApi
      */
     protected function post($endpoint, $payload)
     {
-        return $this->httpClient->post($endpoint, $payload)->throw()->json();
+        return $this->httpClient->post($endpoint, $payload)->json();
     }
 
     /**

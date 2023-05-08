@@ -81,12 +81,11 @@ class CustomerTest extends TestCase
         $this->assertCount(1, $responseArray);
     }
 
-    public function test_creat_customer()
+    public function test_create_customer()
     {
         Http::fake([
-            config('curacel.base_url')."/customers/" => [
-                'data' =>
-                    [
+            config('curacel.base_url')."/customers" => [
+                'data' => [
                         'id' => 7948,
                         'ref' => 'jetstream_6Pf57Lj3iTNvrSJV',
                         'first_name' => 'Mel',

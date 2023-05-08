@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 use Jetstream\Curacel\API\Interface\IProductService;
 
-class ProductService extends CuracelApi implements IProductService
+class ProductService extends CuracelApiConfig implements IProductService
 {
     /**
      * @var Repository|Application|\Illuminate\Foundation\Application|mixed
