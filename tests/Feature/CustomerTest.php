@@ -3,7 +3,6 @@
 namespace Jetstream\Curacel\Tests\Feature;
 
 use Illuminate\Support\Facades\Http;
-use JetBrains\PhpStorm\NoReturn;
 use Jetstream\Curacel\Tests\TestCase;
 
 class CustomerTest extends TestCase
@@ -30,17 +29,17 @@ class CustomerTest extends TestCase
                         'next_of_kin_phone' => '+233203450921',
                     ],
                     [
-                    'id' => 7949,
-                    'ref' => '56857w8875',
-                    'first_name' => 'Rich',
-                    'last_name' => 'Zedek',
-                    'birth_date' => '2023-04-13',
-                    'email' => 'tbo@jetstreamafrica.com',
-                    'phone' => '+233203450921',
-                    'sex' => 'M',
-                    'residential_address' => 'Teshie',
-                    'next_of_kin_name' => 'Stan',
-                    'next_of_kin_phone' => '+233203450921',
+                        'id' => 7949,
+                        'ref' => '56857w8875',
+                        'first_name' => 'Rich',
+                        'last_name' => 'Zedek',
+                        'birth_date' => '2023-04-13',
+                        'email' => 'tbo@jetstreamafrica.com',
+                        'phone' => '+233203450921',
+                        'sex' => 'M',
+                        'residential_address' => 'Teshie',
+                        'next_of_kin_name' => 'Stan',
+                        'next_of_kin_phone' => '+233203450921',
                 ],
             ],
         ]);
