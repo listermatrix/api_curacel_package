@@ -3,6 +3,7 @@
 namespace Jetstream\Curacel;
 use Illuminate\Support\ServiceProvider;
 use Jetstream\Curacel\API\CustomerApi;
+use Jetstream\Curacel\API\CustomerService;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 
 class CuracelServiceProvider extends ServiceProvider
@@ -21,6 +22,6 @@ class CuracelServiceProvider extends ServiceProvider
 
     public function  register(): void
     {
-        $this->app->bind(ICustomerService::class, CustomerApi::class);
+        $this->app->singleton(ICustomerService::class, CustomerService::class);
     }
 }
