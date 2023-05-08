@@ -39,4 +39,9 @@ class CustomerController extends Controller
         $payload = $request->all();
         return $this->service->updateCustomer($payload);
     }
+
+    public function delete($reference)
+    {
+        return $this->service->deleteCustomer($reference);
+    }
 }

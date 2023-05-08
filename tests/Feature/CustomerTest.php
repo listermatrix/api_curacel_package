@@ -83,7 +83,6 @@ class CustomerTest extends TestCase
 
     public function test_creat_customer()
     {
-        $customerReference  = uniqid();
         Http::fake([
             config('curacel.base_url')."/customers/" => [
                 'data' =>
@@ -118,5 +117,13 @@ class CustomerTest extends TestCase
         $response->assertStatus(200);
         $this->assertIsArray($responseArray);
         $this->assertCount(1, $responseArray);
+    }
+
+    public function test_delete_customer()
+    {
+        $customerReference  = uniqid();
+        Http::fake();
+        $response = $this->delete(route('customer.delete',$customerReference));
+        $response->assertStatus(200);
     }
 }
