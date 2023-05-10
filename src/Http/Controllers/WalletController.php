@@ -5,6 +5,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\IWalletService;
+use Jetstream\Curacel\DataObjects\WalletData;
 
 class WalletController extends Controller
 {
@@ -20,14 +21,18 @@ class WalletController extends Controller
         return $this->service->getBalance();
     }
 
-    public  function transactions()
+    public  function transactions(Request $request)
     {
-        return $this->service->getTransactions();
+        $params  = $request->all();
+        return $this->service->getTransactions($params);
     }
 
     public  function topUp(Request $request)
-    {   $payload = $request->all();
-        return $this->service->initializeTopUp($payload);
+    {
+        $payload = $request->all();
+        $walletData  = new WalletData($payload['amount'],'GHS');
+
+        return $this->service->initializeTopUp($walletData);
     }
 
 }

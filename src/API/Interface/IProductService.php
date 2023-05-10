@@ -2,6 +2,8 @@
 
 namespace Jetstream\Curacel\API\Interface;
 
+use Jetstream\Curacel\DataObjects\ProductData;
+
 interface IProductService
 {
     public function getInsuranceProduct(int $id,array $params = []);
@@ -10,7 +12,7 @@ interface IProductService
 
     public function getAllInsuranceProducts(array $params = []);
 
-    public function purchaseProduct(array $payload);
+    public function purchaseProduct(ProductData $productData);
 
     public function getAllOrders(array $params = []);
 

@@ -5,7 +5,7 @@ namespace Jetstream\Curacel\API\Services;
 use Illuminate\Http\Client\RequestException;
 use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\IWalletService;
-use Jetstream\Curacel\Models\Customer;
+use Jetstream\Curacel\DataObjects\WalletData;
 
 class WalletService extends CuracelApiConfig implements IWalletService
 {
@@ -29,17 +29,17 @@ class WalletService extends CuracelApiConfig implements IWalletService
     /**
      * @throws RequestException
      */
-    public function getTransactions()
+    public function getTransactions(array $params = []): mixed
     {
-        return $this->get("{$this->path}/transactions");
+        return $this->get("{$this->path}/transactions",$params);
     }
 
     /**
      * @throws RequestException
      */
-    public function initializeTopUp(array $payload): mixed
+    public function initializeTopUp(WalletData $walletData): mixed
     {
-        return $this->post("{$this->path}/init-topup",$payload);
+        return $this->post("{$this->path}/init-topup",$walletData->toArray());
     }
 
 

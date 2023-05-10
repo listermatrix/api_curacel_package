@@ -5,7 +5,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\ICustomerService;
-use Jetstream\Curacel\Models\Customer;
+use Jetstream\Curacel\DataObjects\CuracelCustomer;
 
 class CustomerController extends Controller
 {
@@ -25,7 +25,7 @@ class CustomerController extends Controller
     public  function create(Request $request)
     {
         $data = $request->all();
-        $customer = new Customer;
+        $customer = new CuracelCustomer;
 
         foreach ($data as $key => $value) {
             $customer->$key = $value;

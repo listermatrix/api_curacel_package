@@ -7,6 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Client\RequestException;
 use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\DataObjects\ProductData;
 
 class ProductService extends CuracelApiConfig implements IProductService
 {
@@ -48,13 +49,13 @@ class ProductService extends CuracelApiConfig implements IProductService
     }
 
     /**
-     * @param array $payload
+     * @param ProductData $productData
      * @return mixed
      * @throws RequestException
      */
-    public function purchaseProduct(array $payload): mixed
+    public function purchaseProduct(ProductData $productData): mixed
     {
-        return $this->post("{$this->orderPath}",$payload);
+        return $this->post("{$this->orderPath}",$productData->toArray());
     }
 
     /**

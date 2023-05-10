@@ -29,11 +29,10 @@ Route::prefix('product')->group(function (){
 
 });
 
-
 Route::prefix('wallet')->group(function (){
-    Route::get('types',[WalletController::class,'getProductTypes'])->name('wallet.types');
-    Route::get('insurance',[WalletController::class,'getInsuranceProducts'])->name('wallet.insurance');
-    Route::get('{reference}',[WalletController::class,'showInsuranceProduct'])->name('wallet.show');
+    Route::post('top-up',[WalletController::class,'topUp'])->name('wallet.topup');
+    Route::get('balance',[WalletController::class,'balance'])->name('wallet.balance');
+    Route::get('transactions',[WalletController::class,'transactions'])->name('wallet.transactions');
 });
 
 

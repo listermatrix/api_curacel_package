@@ -7,7 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Client\RequestException;
 use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\ICustomerService;
-use Jetstream\Curacel\Models\Customer;
+use Jetstream\Curacel\DataObjects\CuracelCustomer;
 
 class CustomerService extends CuracelApiConfig implements ICustomerService
 {
@@ -38,7 +38,7 @@ class CustomerService extends CuracelApiConfig implements ICustomerService
     /**
      * @throws RequestException
      */
-    public function createCustomer(Customer $customer)
+    public function createCustomer(CuracelCustomer $customer)
     {
         return $this->post($this->path,$customer->toArray());
     }
@@ -46,7 +46,7 @@ class CustomerService extends CuracelApiConfig implements ICustomerService
     /**
      * @throws RequestException
      */
-    public function updateCustomer(Customer $customer)
+    public function updateCustomer(CuracelCustomer $customer)
     {
         return $this->patch("{$this->path}/".$customer->ref,$customer->toArray());
     }
