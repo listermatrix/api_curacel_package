@@ -8,13 +8,6 @@ use Illuminate\Contracts\Config\Repository;
 
 class TestCase extends OrchestraTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->basUrl = config('curacel.base_url');
-        $this->key = config('curacel.api_key');
-    }
 
     protected function getPackageProviders($app): array
     {

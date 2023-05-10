@@ -27,9 +27,9 @@ class ProductController extends Controller
         return $this->service->getAllProductTypes();
     }
 
-    public  function showInsuranceProduct($reference)
+    public  function showInsuranceProduct($id)
     {
-        return $this->service->getInsuranceProduct($reference);
+        return $this->service->getInsuranceProduct($id);
     }
 
 }

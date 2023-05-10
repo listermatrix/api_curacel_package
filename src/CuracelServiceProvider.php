@@ -2,21 +2,27 @@
 
 namespace Jetstream\Curacel;
 use Illuminate\Support\ServiceProvider;
-use Jetstream\Curacel\API\CustomerService;
 use Jetstream\Curacel\API\Interface\ICustomerService;
+use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\API\Interface\IWalletService;
+use Jetstream\Curacel\API\Services\CustomerService;
+use Jetstream\Curacel\API\Services\ProductService;
+use Jetstream\Curacel\API\Services\WalletService;
 
 class CuracelServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->loadRoutesFrom('routes/web.php');
-        $this->mergeConfigFrom('config/curacel.php', 'curacel');
-        $this->publishes(['config/curacel.php' => config_path('curacel.php'),]);
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->mergeConfigFrom(__DIR__.'/config/curacel.php', 'curacel');
+        $this->publishes([__DIR__.'/config/curacel.php' => config_path('curacel.php'),]);
     }
 
 
     public function  register(): void
     {
         $this->app->singleton(ICustomerService::class, CustomerService::class);
+        $this->app->singleton(IProductService::class, ProductService::class);
+        $this->app->singleton(IWalletService::class, WalletService::class);
     }
 }

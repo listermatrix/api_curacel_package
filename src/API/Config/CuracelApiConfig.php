@@ -36,9 +36,9 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function get($endpoint)
+    protected function get($endpoint,array $params = [])
     {
-        return $this->httpClient->get($endpoint)->throw()->json();
+        return $this->httpClient->get($endpoint,$params)->throw()->json();
     }
 
     /**
@@ -46,7 +46,7 @@ class CuracelApiConfig
      */
     protected function post($endpoint, $payload)
     {
-        return $this->httpClient->post($endpoint, $payload)->json();
+        return $this->httpClient->post($endpoint, $payload)->throw()->json();
     }
 
     /**

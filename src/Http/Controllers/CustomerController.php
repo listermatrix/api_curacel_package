@@ -2,10 +2,10 @@
 
 namespace Jetstream\Curacel\Http\Controllers;
 
-//use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\ICustomerService;
+use Jetstream\Curacel\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -24,8 +24,14 @@ class CustomerController extends Controller
 
     public  function create(Request $request)
     {
-        $payload = $request->all();
-        return $this->service->createCustomer($payload);
+        $data = $request->all();
+        $customer = new Customer;
+
+        foreach ($data as $key => $value) {
+            $customer->$key = $value;
+        }
+
+        return $this->service->createCustomer($customer);
     }
 
 

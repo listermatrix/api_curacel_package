@@ -1,27 +1,16 @@
 <?php
 
-namespace Jetstream\Curacel\API;
+namespace Jetstream\Curacel\API\Services;
 
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Client\RequestException;
 use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\ICustomerService;
+use Jetstream\Curacel\Models\Customer;
 
 class CustomerService extends CuracelApiConfig implements ICustomerService
 {
-    /**
-     * @var Repository|Application|\Illuminate\Foundation\Application|mixed
-     */
-    private mixed $basUrl;
-    /**
-     * @var Repository|Application|\Illuminate\Foundation\Application|mixed
-     */
-    private mixed $key;
-    /**
-     * @var array|string[]
-     */
-    protected array|\Illuminate\Http\Client\PendingRequest $httpClient;
     private string $path;
 
     public function __construct()
@@ -49,17 +38,17 @@ class CustomerService extends CuracelApiConfig implements ICustomerService
     /**
      * @throws RequestException
      */
-    public function createCustomer($payload)
+    public function createCustomer(Customer $customer)
     {
-        return $this->post($this->path,$payload);
+        return $this->post($this->path,$customer->toArray());
     }
 
     /**
      * @throws RequestException
      */
-    public function updateCustomer($payload)
+    public function updateCustomer(Customer $customer)
     {
-        return $this->patch("{$this->path}/".$payload['ref'],$payload);
+        return $this->patch("{$this->path}/".$customer->ref,$customer->toArray());
     }
 
 
