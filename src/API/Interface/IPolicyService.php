@@ -8,5 +8,5 @@ interface IPolicyService
 
     public function getPolicyDocument(int $id);
 
-    public function getPolicyResource(int $id,array $params = []);
+    public function getPolicyResource(string $identifier,array $params = []);
 }

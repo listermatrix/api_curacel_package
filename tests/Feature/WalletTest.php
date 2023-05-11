@@ -37,7 +37,6 @@ class WalletTest extends TestCase
     public function test_get_wallet_transactions()
     {
 
-
         $response = $this->get(route('wallet.transactions'));
         $responseArray =  $response->json();
         $response->assertStatus(200);
