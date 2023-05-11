@@ -2,10 +2,13 @@
 
 namespace Jetstream\Curacel\API\Interface;
 
+use Jetstream\Curacel\DataObjects\ClaimData;
+use Jetstream\Curacel\DataObjects\VoucherData;
+
 interface IClaimService
 {
-    public function createClaim();
-    public function getAllClaims();
-    public function getClaim();
-    public function updateDischargeVoucher();
+    public function createClaim(ClaimData $claimData);
+    public function getAllClaims(array $params = []);
+    public function getClaim(int $claimId);
+    public function updateDischargeVoucher(VoucherData $voucherData);
 }

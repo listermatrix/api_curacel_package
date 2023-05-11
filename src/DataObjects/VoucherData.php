@@ -6,9 +6,12 @@ use Spatie\LaravelData\Data;
 
 class VoucherData extends  Data
 {
+
     public function __construct(
-        public float $amount,
-        public string $currency,
-    ) {
+        public int $claim_id,
+        public int $discharge_voucher_id,
+        public string $status,
+        public string $comment){
+
     }
 }

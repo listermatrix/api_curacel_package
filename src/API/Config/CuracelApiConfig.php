@@ -36,7 +36,7 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function get($endpoint,array $params = [])
+    protected function get(string $endpoint,array $params = [])
     {
         return $this->httpClient->get($endpoint,$params)->throw()->json();
     }
@@ -44,7 +44,7 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function post($endpoint, $payload)
+    protected function post(string $endpoint, array $payload)
     {
         return $this->httpClient->post($endpoint, $payload)->throw()->json();
     }
@@ -52,7 +52,7 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function patch($endpoint, $payload)
+    protected function patch(string $endpoint, array $payload)
     {
         return $this->httpClient->patch($endpoint, $payload)->throw()->json();
     }
@@ -60,7 +60,15 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function delete($endpoint)
+    protected function put(string $endpoint, array $payload)
+    {
+        return $this->httpClient->put($endpoint, $payload)->throw()->json();
+    }
+
+    /**
+     * @throws RequestException
+     */
+    protected function delete(string $endpoint)
     {
         return $this->httpClient->delete($endpoint)->throw()->json();
     }

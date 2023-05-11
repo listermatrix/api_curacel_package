@@ -7,8 +7,10 @@ use Spatie\LaravelData\Data;
 class ClaimData extends  Data
 {
     public function __construct(
-        public float $amount,
-        public string $currency,
+        public string $policy_number,
+        public string $amount,
+        public array $attachments,
+        public PaymentDetailsData $payment_details
     ) {
     }
 }
