@@ -5,7 +5,8 @@ namespace Jetstream\Curacel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\ICustomerService;
-use Jetstream\Curacel\DataObjects\CuracelCustomer;
+use Jetstream\Curacel\DataObjects\IndividualCustomerData;
+use Jetstream\Curacel\DataObjects\ProofOfAddressData;
 
 class CustomerController extends Controller
 {
@@ -25,15 +26,29 @@ class CustomerController extends Controller
     public  function create(Request $request)
     {
         $data = $request->all();
-        $customer = new CuracelCustomer;
+        $customer =  new IndividualCustomerData(
+            '',
+            '',
+            '',
+            '',
+            '',
+            date('2023-01-01'),
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            new ProofOfAddressData('',''),
+        );
 
-        foreach ($data as $key => $value) {
-            $customer->$key = $value;
-        }
 
         return $this->service->createCustomer($customer);
     }
-
+//
 
     public  function show($reference)
     {
@@ -42,8 +57,26 @@ class CustomerController extends Controller
 
     public  function update(Request $request)
     {
-        $payload = $request->all();
-        return $this->service->updateCustomer($payload);
+        $data = $request->all();
+        $customer =  new IndividualCustomerData(
+            '',
+            '',
+            '',
+            '',
+            '',
+            date('2023-01-01'),
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            new ProofOfAddressData('',''),
+        );
+        return $this->service->updateCustomer($customer);
     }
 
     public function delete($reference)

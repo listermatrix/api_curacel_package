@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Jetstream\Curacel\Http\Controllers\AttachmentController;
 use Jetstream\Curacel\Http\Controllers\ClaimController;
+use Jetstream\Curacel\Http\Controllers\CreditRequestController;
 use Jetstream\Curacel\Http\Controllers\CustomerController;
 use Jetstream\Curacel\Http\Controllers\PolicyController;
 use Jetstream\Curacel\Http\Controllers\ProductController;
@@ -51,5 +53,17 @@ Route::prefix('claims')->group(function (){
     Route::put('update-voucher',[ClaimController::class,'updateVoucher'])->name('claim.resource');
 });
 
+
+Route::prefix('attachment')->group(function (){
+    Route::post('',[AttachmentController::class,'create'])->name('attachment.create');
+    Route::get('{id}',[AttachmentController::class,'download'])->name('attachment.download');
+});
+
+
+Route::prefix('credit-requests')->group(function (){
+    Route::get('',[CreditRequestController::class,'index'])->name('credit.index');
+    Route::post('',[CreditRequestController::class,'create'])->name('credit.create');
+    Route::get('markup-amount',[CreditRequestController::class,'getMarkAmount'])->name('credit.amount');
+});
 
 

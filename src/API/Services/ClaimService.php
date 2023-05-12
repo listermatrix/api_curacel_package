@@ -5,9 +5,7 @@ namespace Jetstream\Curacel\API\Services;
 use Illuminate\Http\Client\RequestException;
 use Jetstream\Curacel\API\Config\CuracelApiConfig;
 use Jetstream\Curacel\API\Interface\IClaimService;
-use Jetstream\Curacel\API\Interface\ICustomerService;
 use Jetstream\Curacel\DataObjects\ClaimData;
-use Jetstream\Curacel\DataObjects\CuracelCustomer;
 use Jetstream\Curacel\DataObjects\VoucherData;
 
 class ClaimService extends CuracelApiConfig implements IClaimService
