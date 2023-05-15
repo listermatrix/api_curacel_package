@@ -8,6 +8,7 @@ use Jetstream\Curacel\Http\Controllers\CustomerController;
 use Jetstream\Curacel\Http\Controllers\PolicyController;
 use Jetstream\Curacel\Http\Controllers\ProductController;
 use Jetstream\Curacel\Http\Controllers\ProductPurchaseController;
+use Jetstream\Curacel\Http\Controllers\QuotationController;
 use Jetstream\Curacel\Http\Controllers\WalletController;
 
 
@@ -64,6 +65,18 @@ Route::prefix('credit-requests')->group(function (){
     Route::get('',[CreditRequestController::class,'index'])->name('credit.index');
     Route::post('',[CreditRequestController::class,'create'])->name('credit.create');
     Route::get('markup-amount',[CreditRequestController::class,'getMarkAmount'])->name('credit.amount');
+});
+
+
+Route::prefix('quotation')->group(function (){
+    Route::get('',[QuotationController::class,'index'])->name('quotation.index');
+    Route::post('',[QuotationController::class,'create'])->name('quotation.create');
+    Route::get('{quote}',[QuotationController::class,'show'])->name('quotation.show');
+    Route::patch('{quote}',[QuotationController::class,'show'])->name('quotation.update');
+    Route::delete('{quote}',[QuotationController::class,'delete'])->name('quotation.delete');
+
+    Route::get('{quote}/download',[QuotationController::class,'downloadQuotationInvoice'])->name('quotation.downloadInvoice');
+    Route::post('convert',[QuotationController::class,'convertQuotation'])->name('quotation.convert');
 });
 
 

@@ -68,9 +68,9 @@ class CuracelApiConfig
     /**
      * @throws RequestException
      */
-    protected function delete(string $endpoint)
+    protected function delete(string $endpoint,$params = [])
     {
-        return $this->httpClient->delete($endpoint)->throw()->json();
+        return $this->httpClient->delete($endpoint,$params)->throw()->json();
     }
 
 }
