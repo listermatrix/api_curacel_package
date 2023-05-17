@@ -17,9 +17,10 @@ class ProductController extends Controller
         $this->service = app(IProductService::class);
     }
 
-    public  function getInsuranceProducts()
+    public  function getInsuranceProducts(Request $request)
     {
-        return $this->service->getAllInsuranceProducts();
+        $params = $request->all();
+        return $this->service->getAllInsuranceProducts($params);
     }
 
     public  function getProductTypes()

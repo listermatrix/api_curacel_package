@@ -24,10 +24,10 @@ class ProductTest extends TestCase
         $this->assertGreaterThan(2, count($data));
     }
 
-    public function test_get_insurance_types()
+    public function test_get_insurance_products()
     {
 
-        $response = $this->get(route('product.insurance'));
+        $response = $this->get(route('product.insurance',['page'=>1,'per_page'=>5]));
         $responseArray =  $response->json();
         $response->assertStatus(200);
         $this->assertArrayHasKey('data', $responseArray);
