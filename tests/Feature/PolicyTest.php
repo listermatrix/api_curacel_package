@@ -104,7 +104,7 @@ class PolicyTest extends TestCase
 
     public function test_get_policy_document()
     {
-        $unique = uniqid();
+        $unique = 1;
         Http::fake([
             config('curacel.base_url')."/policies/$unique/doc" =>
                 ['document.pdf']
