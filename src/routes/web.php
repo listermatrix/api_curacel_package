@@ -45,14 +45,14 @@ Route::prefix('wallet')->group(function (){
 Route::prefix('policy')->group(function (){
     Route::get('',[PolicyController::class,'getCustomerPolicies'])->name('policy.list');
     Route::get('document/{id}',[PolicyController::class,'getPolicyDocument'])->name('policy.document');
-    Route::get('resource',[PolicyController::class,'getPolicyResource'])->name('policy.resource');
+    Route::get('resource/{identifier}',[PolicyController::class,'getPolicyResource'])->name('policy.resource');
 });
 
 Route::prefix('claims')->group(function (){
     Route::post('',[ClaimController::class,'create'])->name('claim.create');
     Route::get('',[ClaimController::class,'index'])->name('claim.list');
     Route::get('{id}',[ClaimController::class,'showClaim'])->name('claim.show');
-    Route::put('update-voucher',[ClaimController::class,'updateVoucher'])->name('claim.resource');
+    Route::put('update-voucher',[ClaimController::class,'updateVoucher'])->name('claim.voucher.update');
 });
 
 

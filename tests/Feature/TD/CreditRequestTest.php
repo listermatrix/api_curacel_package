@@ -9,7 +9,7 @@ class CreditRequestTest extends TestCase
 {
     /**
      */
-    public function test_wallet_top_up()
+    public function test_create_credit_request_for_customer()
     {
         Http::fake([
             config('curacel.base_url')."/partners/wallet/init-topup" => [
@@ -24,7 +24,7 @@ class CreditRequestTest extends TestCase
         $this->assertArrayHasKey('data', $responseArray);
     }
 
-    public function test_get_wallet_balance()
+    public function test_get_all_credit_requests()
     {
         $response = $this->get(route('wallet.balance'));
         $responseArray =  $response->json();
@@ -34,14 +34,19 @@ class CreditRequestTest extends TestCase
         $this->assertArrayHasKey('currency', $responseArray[0]);
     }
 
-    public function test_get_wallet_transactions()
+    public function test_get_extra_request_extra_amount()
     {
+        Http::fake([
+            config('curacel.base_url')."/insurance-credit-requests/markup-amount" => [
+                'amount' => 0.49
+            ]
+        ]);
 
-        $response = $this->get(route('wallet.transactions'));
+        $response = $this->get(route('credit.amount'));
         $responseArray =  $response->json();
         $response->assertStatus(200);
         $this->assertIsArray($responseArray);
-        $this->assertArrayHasKey('data',$responseArray);
+        $this->assertArrayHasKey('amount',$responseArray);
     }
 
 }

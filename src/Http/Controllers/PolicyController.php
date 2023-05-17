@@ -5,7 +5,6 @@ namespace Jetstream\Curacel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\IPolicyService;
-use Jetstream\Curacel\DataObjects\WalletData;
 
 class PolicyController extends Controller
 {

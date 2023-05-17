@@ -5,6 +5,8 @@ namespace Jetstream\Curacel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jetstream\Curacel\API\Interface\IClaimService;
+use Jetstream\Curacel\DataObjects\ClaimData;
+use Jetstream\Curacel\DataObjects\VoucherData;
 
 class ClaimController extends Controller
 {
@@ -18,24 +20,24 @@ class ClaimController extends Controller
     public  function index(Request $request)
     {
         $params = $request->all();
-        return $this->service->getAllPolicies($params);
+        return $this->service->getAllClaims($params);
     }
 
     public  function create(Request $request)
     {
-        $params = $request->all();
-        return $this->service->getAllPolicies($params);
+        $params = ClaimData::from($request->all());
+        return $this->service->createClaim($params);
     }
 
     public  function showClaim($id)
     {
-        return $this->service->getPolicyDocument($id);
+        return $this->service->getClaim($id);
     }
 
-    public  function updateVoucher(Request $request,$identifier)
+    public  function updateVoucher(Request $request)
     {
-        $params = $request->all();
-        return $this->service->getPolicyResource($identifier,$params);
+        $data = VoucherData::from($request->all());
+        return $this->service->updateDischargeVoucher($data);
     }
 
 }
