@@ -27,7 +27,7 @@ class CreditRequestController extends Controller
 
     public  function create(Request $request)
     {
-        $creditRequest = new CreditRequestData('','', new IndividualCustomerData(),'','');
+        $creditRequest = CreditRequestData::from($request->all());
         return $this->service->requestCredit($creditRequest);
     }
 
