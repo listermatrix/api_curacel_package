@@ -33,8 +33,9 @@ class ProductTest extends TestCase
         $this->assertArrayHasKey('data', $responseArray);
 
         $data = $responseArray['data'];
+
         $this->assertIsArray($data);
-        $this->assertGreaterThan(2, count($data));
+        $this->assertGreaterThan(4, count($data));
     }
 
     public function test_get_single_insurance_type()
