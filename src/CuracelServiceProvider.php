@@ -8,6 +8,7 @@ use Jetstream\Curacel\API\Interface\ICreditRequestService;
 use Jetstream\Curacel\API\Interface\ICustomerService;
 use Jetstream\Curacel\API\Interface\IPolicyService;
 use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\API\Interface\IQuotationService;
 use Jetstream\Curacel\API\Interface\IWalletService;
 use Jetstream\Curacel\API\Services\AttachmentService;
 use Jetstream\Curacel\API\Services\ClaimService;
@@ -15,6 +16,7 @@ use Jetstream\Curacel\API\Services\CreditRequestService;
 use Jetstream\Curacel\API\Services\CustomerService;
 use Jetstream\Curacel\API\Services\PolicyService;
 use Jetstream\Curacel\API\Services\ProductService;
+use Jetstream\Curacel\API\Services\QuotationService;
 use Jetstream\Curacel\API\Services\WalletService;
 
 class CuracelServiceProvider extends ServiceProvider
@@ -36,5 +38,6 @@ class CuracelServiceProvider extends ServiceProvider
         $this->app->singleton(IClaimService::class, ClaimService::class);
         $this->app->singleton(IAttachmentService::class, AttachmentService::class);
         $this->app->singleton(ICreditRequestService::class, CreditRequestService::class);
+        $this->app->singleton(IQuotationService::class, QuotationService::class);
     }
 }

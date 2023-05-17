@@ -8,6 +8,7 @@ use Jetstream\Curacel\Http\Controllers\CustomerController;
 use Jetstream\Curacel\Http\Controllers\PolicyController;
 use Jetstream\Curacel\Http\Controllers\ProductController;
 use Jetstream\Curacel\Http\Controllers\ProductPurchaseController;
+use Jetstream\Curacel\Http\Controllers\QuotationActionController;
 use Jetstream\Curacel\Http\Controllers\QuotationController;
 use Jetstream\Curacel\Http\Controllers\WalletController;
 
@@ -27,8 +28,8 @@ Route::prefix('product')->group(function (){
     Route::post('purchase',[ProductPurchaseController::class,'purchaseProduct'])->name('product.purchase');
 
     Route::prefix('orders')->group(function () {
-        Route::get('/', [ProductPurchaseController::class, 'listOrders'])->name('products.orders.list');
-        Route::get('{id}', [ProductPurchaseController::class, 'showOrder'])->name('products.orders.show');
+        Route::get('list', [ProductPurchaseController::class, 'listOrders'])->name('products.orders.list');
+        Route::get('{orderId}', [ProductPurchaseController::class, 'showOrder'])->name('products.orders.show');
         Route::post('authorize', [ProductPurchaseController::class, 'authorizeOrder'])->name('products.orders.authorize');
     });
 
@@ -72,11 +73,11 @@ Route::prefix('quotation')->group(function (){
     Route::get('',[QuotationController::class,'index'])->name('quotation.index');
     Route::post('',[QuotationController::class,'create'])->name('quotation.create');
     Route::get('{quote}',[QuotationController::class,'show'])->name('quotation.show');
-    Route::patch('{quote}',[QuotationController::class,'show'])->name('quotation.update');
+    Route::patch('{quote}',[QuotationController::class,'update'])->name('quotation.update');
     Route::delete('{quote}',[QuotationController::class,'delete'])->name('quotation.delete');
 
-    Route::get('{quote}/download',[QuotationController::class,'downloadQuotationInvoice'])->name('quotation.downloadInvoice');
-    Route::post('convert',[QuotationController::class,'convertQuotation'])->name('quotation.convert');
+    Route::get('{quote}/download',[QuotationActionController::class,'downloadQuotationInvoice'])->name('quotation.downloadInvoice');
+    Route::post('convert',[QuotationActionController::class,'convertQuotation'])->name('quotation.convert');
 });
 
 

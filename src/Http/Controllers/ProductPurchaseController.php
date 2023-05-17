@@ -4,8 +4,8 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\ICustomerService;
 use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\DataObjects\ProductData;
 
 class ProductPurchaseController extends Controller
 {
@@ -18,8 +18,9 @@ class ProductPurchaseController extends Controller
 
     public  function purchaseProduct(Request $request)
     {
-        $payload = $request->all();
-        return $this->service->purchaseProduct($payload);
+        $productData =  ProductData::from($request->all());
+
+        return $this->service->purchaseProduct($productData);
     }
 
     public  function listOrders()
@@ -35,7 +36,7 @@ class ProductPurchaseController extends Controller
     public function authorizeOrder(Request $request)
     {
         $payload = $request->all();
-        return $this->service->getOrder($payload);
+        return $this->service->authorizeOrder($payload);
     }
 
 }

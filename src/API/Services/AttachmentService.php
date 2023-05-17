@@ -30,7 +30,7 @@ class AttachmentService extends CuracelApiConfig implements IAttachmentService
      */
     public function createAttachment(AttachmentData $attachmentData): mixed
     {
-        return $this->post($this->path,$attachmentData->toArray());
+        return $this->postFile($this->path,$attachmentData->toArray());
     }
 
     /**

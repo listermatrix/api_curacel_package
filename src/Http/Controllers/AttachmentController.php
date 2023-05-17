@@ -18,8 +18,9 @@ class AttachmentController extends Controller
 
     public  function create(Request $request)
     {
-
-        $attachmentData = new AttachmentData($request->file('file'),$request->input('description'));
+        $data = $request->all();
+        $data = array_merge($data,['file' => $request->file('file')]);
+        $attachmentData = AttachmentData::from($data);
         return $this->service->createAttachment($attachmentData);
     }
 

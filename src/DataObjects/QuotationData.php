@@ -18,7 +18,7 @@ class QuotationData extends  Data
         public float  $asset_value,
         public string $pickup_location,
         public string $dropoff_location,
-        public array $attachments,
+        public array  $attachments,
         public float|Optional $broker_premium_rate,
         public float|Optional $broker_taxes,
     ) {

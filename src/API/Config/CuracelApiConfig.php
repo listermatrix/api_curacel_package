@@ -73,4 +73,15 @@ class CuracelApiConfig
         return $this->httpClient->delete($endpoint,$params)->throw()->json();
     }
 
+    /**
+     * @throws RequestException
+     */
+    protected function postFile(string $endpoint, $params = [])
+    {
+        return $this->httpClient->attach(uniqid('cur'),$params['file'],$params['file']->getClientOriginalName())
+            ->post($endpoint)->throw()->json();
+    }
+
+
+
 }
