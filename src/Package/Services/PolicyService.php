@@ -1,10 +1,10 @@
 <?php
 
-namespace Jetstream\Curacel\API\Services;
+namespace Jetstream\Curacel\Package\Services;
 
 use Illuminate\Http\Client\RequestException;
-use Jetstream\Curacel\API\Config\CuracelApiConfig;
-use Jetstream\Curacel\API\Interface\IPolicyService;
+use Jetstream\Curacel\Package\Config\CuracelApiConfig;
+use Jetstream\Curacel\Package\Interface\IPolicyService;
 
 class PolicyService extends CuracelApiConfig implements IPolicyService
 {
@@ -19,20 +19,18 @@ class PolicyService extends CuracelApiConfig implements IPolicyService
 
     /**
      * @param array $params
-     * @return mixed
-     * @throws RequestException
+     * @return array
      */
-    public function getAllPolicies(array $params = []): mixed
+    public function getAllPolicies(array $params = []): array
     {
         return $this->get($this->path,$params);
     }
 
     /**
      * @param int $id
-     * @return mixed
-     * @throws RequestException
+     * @return array
      */
-    public function getPolicyDocument(int $id): mixed
+    public function getPolicyDocument(int $id): array
     {
         return $this->get("{$this->path}/{$id}/doc");
     }
@@ -40,10 +38,9 @@ class PolicyService extends CuracelApiConfig implements IPolicyService
     /**
      * @param string $identifier
      * @param array $params
-     * @return array|mixed
-     * @throws RequestException
+     * @return array
      */
-    public function getPolicyResource(string $identifier, array $params = []): mixed
+    public function getPolicyResource(string $identifier, array $params = []): array
     {
         return $this->get("{$this->path}/{$identifier}",$params);
     }

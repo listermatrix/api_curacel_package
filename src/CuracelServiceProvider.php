@@ -2,30 +2,31 @@
 
 namespace Jetstream\Curacel;
 use Illuminate\Support\ServiceProvider;
-use Jetstream\Curacel\API\Interface\IAttachmentService;
-use Jetstream\Curacel\API\Interface\IClaimService;
-use Jetstream\Curacel\API\Interface\ICreditRequestService;
-use Jetstream\Curacel\API\Interface\ICustomerService;
-use Jetstream\Curacel\API\Interface\IPolicyService;
-use Jetstream\Curacel\API\Interface\IProductService;
-use Jetstream\Curacel\API\Interface\IQuotationService;
-use Jetstream\Curacel\API\Interface\IWalletService;
-use Jetstream\Curacel\API\Services\AttachmentService;
-use Jetstream\Curacel\API\Services\ClaimService;
-use Jetstream\Curacel\API\Services\CreditRequestService;
-use Jetstream\Curacel\API\Services\CustomerService;
-use Jetstream\Curacel\API\Services\PolicyService;
-use Jetstream\Curacel\API\Services\ProductService;
-use Jetstream\Curacel\API\Services\QuotationService;
-use Jetstream\Curacel\API\Services\WalletService;
+use Jetstream\Curacel\Package\Interface\IAttachmentService;
+use Jetstream\Curacel\Package\Interface\IClaimService;
+use Jetstream\Curacel\Package\Interface\ICreditRequestService;
+use Jetstream\Curacel\Package\Interface\ICustomerService;
+use Jetstream\Curacel\Package\Interface\IPolicyService;
+use Jetstream\Curacel\Package\Interface\IProductService;
+use Jetstream\Curacel\Package\Interface\IQuotationService;
+use Jetstream\Curacel\Package\Interface\IWalletService;
+use Jetstream\Curacel\Package\Services\AttachmentService;
+use Jetstream\Curacel\Package\Services\ClaimService;
+use Jetstream\Curacel\Package\Services\CreditRequestService;
+use Jetstream\Curacel\Package\Services\CustomerService;
+use Jetstream\Curacel\Package\Services\PolicyService;
+use Jetstream\Curacel\Package\Services\ProductService;
+use Jetstream\Curacel\Package\Services\QuotationService;
+use Jetstream\Curacel\Package\Services\WalletService;
 
 class CuracelServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
-        $this->mergeConfigFrom(__DIR__.'/config/curacel.php', 'curacel');
-        $this->publishes([__DIR__.'/config/curacel.php' => config_path('curacel.php'),]);
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->mergeConfigFrom(__DIR__.'/../config/curacel.php', 'curacel');
+        $this->publishes([__DIR__.'/../config/curacel.php' => config_path('curacel.php')]);
+
     }
 
 

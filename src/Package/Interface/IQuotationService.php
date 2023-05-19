@@ -1,6 +1,6 @@
 <?php
 
-namespace Jetstream\Curacel\API\Interface;
+namespace Jetstream\Curacel\Package\Interface;
 
 use Jetstream\Curacel\DataObjects\ConvertQuoteData;
 use Jetstream\Curacel\DataObjects\QuotationData;

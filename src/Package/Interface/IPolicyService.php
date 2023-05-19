@@ -1,6 +1,6 @@
 <?php
 
-namespace Jetstream\Curacel\API\Interface;
+namespace Jetstream\Curacel\Package\Interface;
 
 interface IPolicyService
 {

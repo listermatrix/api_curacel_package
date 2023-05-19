@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IAttachmentService;
+use Jetstream\Curacel\Package\Interface\IAttachmentService;
 use Jetstream\Curacel\DataObjects\AttachmentData;
 
 class AttachmentController extends Controller

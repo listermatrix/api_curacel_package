@@ -48,7 +48,7 @@ class CustomerTest extends TestCase
         $responseArray =  $response->json();
         $response->assertStatus(200);
         $this->assertIsArray($responseArray);
-        $this->assertCount(2, $responseArray);
+        $this->assertCount(3, $responseArray);
     }
 
     public function test_get_single_customer()
@@ -77,7 +77,7 @@ class CustomerTest extends TestCase
         $responseArray =  $response->json();
         $response->assertStatus(200);
         $this->assertIsArray($responseArray);
-        $this->assertCount(1, $responseArray);
+        $this->assertCount(2, $responseArray);
     }
 
     public function test_create_customer()
@@ -101,6 +101,7 @@ class CustomerTest extends TestCase
         ]);
 
         $response = $this->postJson(route('customer.create'), [
+            'ref' => 'jetstream_6Pf57Lj3iTNvrSJV',
             'first_name' => 'Mel',
             'last_name' => 'Zedek',
             'birth_date' => '2023-04-13',
@@ -114,7 +115,8 @@ class CustomerTest extends TestCase
         $responseArray =  $response->json();
         $response->assertStatus(200);
         $this->assertIsArray($responseArray);
-        $this->assertCount(1, $responseArray);
+        $this->assertArrayHasKey('data',$responseArray);
+        $this->assertCount(2, $responseArray);
     }
 
     public function test_delete_customer()

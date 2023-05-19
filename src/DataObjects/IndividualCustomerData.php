@@ -2,15 +2,13 @@
 
 namespace Jetstream\Curacel\DataObjects;
 
-use Carbon\Carbon;
-use Spatie\LaravelData\Attributes\Validation\Date;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class IndividualCustomerData extends  Data
 {
     public function __construct(
-        public string $ref,
+        public string|Optional $ref,
         public string $first_name,
         public string $last_name,
         public string|Optional $middle_name,

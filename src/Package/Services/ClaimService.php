@@ -1,10 +1,10 @@
 <?php
 
-namespace Jetstream\Curacel\API\Services;
+namespace Jetstream\Curacel\Package\Services;
 
 use Illuminate\Http\Client\RequestException;
-use Jetstream\Curacel\API\Config\CuracelApiConfig;
-use Jetstream\Curacel\API\Interface\IClaimService;
+use Jetstream\Curacel\Package\Config\CuracelApiConfig;
+use Jetstream\Curacel\Package\Interface\IClaimService;
 use Jetstream\Curacel\DataObjects\ClaimData;
 use Jetstream\Curacel\DataObjects\VoucherData;
 
@@ -19,33 +19,37 @@ class ClaimService extends CuracelApiConfig implements IClaimService
     }
 
     /**
-     * @throws RequestException
+     * @param ClaimData $claimData
+     * @return array
      */
-    public function createClaim(ClaimData $claimData)
+    public function createClaim(ClaimData $claimData): array
     {
         return $this->post($this->path,$claimData->toArray());
     }
 
     /**
-     * @throws RequestException
+     * @param array $params
+     * @return array
      */
-    public function getAllClaims(array $params = [])
+    public function getAllClaims(array $params = []): array
     {
         return $this->get($this->path,$params);
     }
 
     /**
-     * @throws RequestException
+     * @param int $claimId
+     * @return array
      */
-    public function getClaim(int $claimId)
+    public function getClaim(int $claimId): array
     {
         return $this->get("{$this->path}/$claimId");
     }
 
     /**
-     * @throws RequestException
+     * @param VoucherData $voucherData
+     * @return array
      */
-    public function updateDischargeVoucher(VoucherData $voucherData)
+    public function updateDischargeVoucher(VoucherData $voucherData): array
     {
         return $this->put("{$this->path}/{$voucherData->claim_id}/discharge-voucher/{$voucherData->discharge_voucher_id}",$voucherData->toArray());
     }

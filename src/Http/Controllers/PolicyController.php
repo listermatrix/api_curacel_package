@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IPolicyService;
+use Jetstream\Curacel\Package\Interface\IPolicyService;
 
 class PolicyController extends Controller
 {

@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IWalletService;
+use Jetstream\Curacel\Package\Interface\IWalletService;
 use Jetstream\Curacel\DataObjects\WalletData;
 
 class WalletController extends Controller

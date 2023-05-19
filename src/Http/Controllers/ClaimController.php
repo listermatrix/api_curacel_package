@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IClaimService;
+use Jetstream\Curacel\Package\Interface\IClaimService;
 use Jetstream\Curacel\DataObjects\ClaimData;
 use Jetstream\Curacel\DataObjects\VoucherData;
 

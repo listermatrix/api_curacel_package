@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\ICreditRequestService;
+use Jetstream\Curacel\Package\Interface\ICreditRequestService;
 use Jetstream\Curacel\DataObjects\CreditRequestData;
 use Jetstream\Curacel\DataObjects\IndividualCustomerData;
 use Jetstream\Curacel\DataObjects\ProofOfAddressData;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Jetstream\Curacel\API\Services;
+namespace Jetstream\Curacel\Package\Services;
 
 use Illuminate\Http\Client\RequestException;
-use Jetstream\Curacel\API\Config\CuracelApiConfig;
-use Jetstream\Curacel\API\Interface\IQuotationService;
-use Jetstream\Curacel\API\Interface\IWalletService;
+use Jetstream\Curacel\Package\Config\CuracelApiConfig;
+use Jetstream\Curacel\Package\Interface\IQuotationService;
+use Jetstream\Curacel\Package\Interface\IWalletService;
 use Jetstream\Curacel\DataObjects\ConvertQuoteData;
 use Jetstream\Curacel\DataObjects\QuotationData;
 use Jetstream\Curacel\DataObjects\QuotationUpdateData;
@@ -23,15 +23,17 @@ class QuotationService extends CuracelApiConfig implements IQuotationService
     }
 
     /**
-     * @throws RequestException
+     * @param QuotationData $quotationData
+     * @return array
      */
-    public function createQuotation(QuotationData $quotationData)
+    public function createQuotation(QuotationData $quotationData): array
     {
         return $this->post($this->path,$quotationData->toArray());
     }
 
     /**
-     * @throws RequestException
+     * @param QuotationUpdateData $quotationUpdateData
+     * @return array
      */
     public function updateQuotation(QuotationUpdateData $quotationUpdateData)
     {
@@ -39,41 +41,46 @@ class QuotationService extends CuracelApiConfig implements IQuotationService
     }
 
     /**
-     * @throws RequestException
+     * @param array $params
+     * @return array
      */
-    public function getAllQuotations(array $params = [])
+    public function getAllQuotations(array $params = []): array
     {
         return $this->get($this->path,$params);
     }
 
     /**
-     * @throws RequestException
+     * @param ConvertQuoteData $convertQuoteData
+     * @return array
      */
-    public function convertQuotation(ConvertQuoteData $convertQuoteData)
+    public function convertQuotation(ConvertQuoteData $convertQuoteData): array
     {
         return $this->post("{$this->path}/accept",$convertQuoteData->toArray());
     }
 
     /**
-     * @throws RequestException
+     * @param string $quote
+     * @param array $params
+     * @return array
      */
-    public function downloadQuotationInvoice(string $quote, array $params = [])
+    public function downloadQuotationInvoice(string $quote, array $params = []): array
     {
         return $this->get("{$this->path}/{$quote}/invoice",$params);
     }
 
     /**
-     * @throws RequestException
      */
-    public function getQuotation(string $quote, array $params = [])
+    public function getQuotation(string $quote, array $params = []): array
     {
         return $this->get("{$this->path}/{$quote}",$params);
     }
 
     /**
-     * @throws RequestException
+     * @param string $quote
+     * @param array $params
+     * @return array
      */
-    public function deleteQuotation(string $quote, array $params = [])
+    public function deleteQuotation(string $quote, array $params = []): array
     {
         return $this->delete("{$this->path}/{$quote}",$params);
     }

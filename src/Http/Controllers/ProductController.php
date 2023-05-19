@@ -5,8 +5,8 @@ namespace Jetstream\Curacel\Http\Controllers;
 //use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\ICustomerService;
-use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\Package\Interface\ICustomerService;
+use Jetstream\Curacel\Package\Interface\IProductService;
 
 class ProductController extends Controller
 {

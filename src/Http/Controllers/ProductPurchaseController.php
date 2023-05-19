@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IProductService;
+use Jetstream\Curacel\Package\Interface\IProductService;
 use Jetstream\Curacel\DataObjects\ProductData;
 
 class ProductPurchaseController extends Controller

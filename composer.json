@@ -5,7 +5,9 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Jetstream\\Curacel\\": "src/"
+            "Jetstream\\Curacel\\": "src/",
+            "Jetstream\\Curacel\\API\\Config\\": "config/",
+            "Jetstream\\Curacel\\API\\Routes\\": "routes/"
         }
     },
     "autoload-dev": {
@@ -24,6 +26,13 @@
         "post-autoload-dump": [
             "@php vendor/bin/testbench package:discover --ansi"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jetstream\\Curacel\\CuracelServiceProvider"
+            ]
+        }
     },
     "require": {
         "guzzlehttp/guzzle": "^7.5",

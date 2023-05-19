@@ -42,7 +42,7 @@ class PolicyTest extends TestCase
                             "policy_start_date" => "2022-04-06T00:00:00.000000Z",
                             "asset_ref" => "T2354354",
                             "currency" => "GHS",
-                            "channel" => "API",
+                            "channel" => "Services",
                             "created_at" => "2022-04-06T10:34:20.000000Z",
                             "product" => [
                                 "title" => "Comprehensive Car Plan XYZ",
@@ -148,7 +148,7 @@ class PolicyTest extends TestCase
                         "policy_start_date" => "2022-04-06T00:00:00.000000Z",
                         "asset_ref" => "T2354354",
                         "currency" => "GHS",
-                        "channel" => "API",
+                        "channel" => "Services",
                         "created_at" => "2022-04-06T10:34:20.000000Z",
                         "product" => [
                             "title" => "Comprehensive Car Plan XYZ",

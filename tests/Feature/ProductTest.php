@@ -45,7 +45,7 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
         $this->assertArrayHasKey('data', $responseArray);
         $this->assertIsArray($responseArray);
-        $this->assertCount(1, $responseArray);
+        $this->assertCount(2, $responseArray);
     }
 
 

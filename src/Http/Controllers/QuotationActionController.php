@@ -4,7 +4,7 @@ namespace Jetstream\Curacel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Jetstream\Curacel\API\Interface\IQuotationService;
+use Jetstream\Curacel\Package\Interface\IQuotationService;
 use Jetstream\Curacel\DataObjects\ConvertQuoteData;
 
 class QuotationActionController extends Controller

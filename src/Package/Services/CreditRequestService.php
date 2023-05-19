@@ -1,10 +1,10 @@
 <?php
 
-namespace Jetstream\Curacel\API\Services;
+namespace Jetstream\Curacel\Package\Services;
 
 use Illuminate\Http\Client\RequestException;
-use Jetstream\Curacel\API\Config\CuracelApiConfig;
-use Jetstream\Curacel\API\Interface\ICreditRequestService;
+use Jetstream\Curacel\Package\Config\CuracelApiConfig;
+use Jetstream\Curacel\Package\Interface\ICreditRequestService;
 use Jetstream\Curacel\DataObjects\CreditRequestData;
 use Jetstream\Curacel\DataObjects\WalletData;
 
@@ -21,30 +21,27 @@ class CreditRequestService extends CuracelApiConfig implements ICreditRequestSer
 
     /**
      * @param CreditRequestData $creditRequest
-     * @return mixed
-     * @throws RequestException
+     * @return array
      */
-    public function requestCredit(CreditRequestData $creditRequest): mixed
+    public function requestCredit(CreditRequestData $creditRequest): array
     {
         return $this->post($this->path,$creditRequest->toArray());
     }
 
     /**
      * @param array $params
-     * @return mixed
-     * @throws RequestException
+     * @return array
      */
-    public function getCreditRequests(array $params = []): mixed
+    public function getCreditRequests(array $params = []): array
     {
         return $this->get($this->path,$params);
     }
 
     /**
      * @param array $params
-     * @return mixed
-     * @throws RequestException
+     * @return array
      */
-    public function getExtraAmount(array $params = []): mixed
+    public function getExtraAmount(array $params = []): array
     {
         return $this->get("$this->path/markup-amount",$params);
     }
