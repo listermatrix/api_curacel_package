@@ -1,31 +1,25 @@
-<!-- TOC -->
+# <div align="center">Curacel SDK</div>
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/JetstreamAfrica/The-Documentation-Compendium.svg)](https://github.com/JetstreamAfrica/jetcur-sdk/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/JetstreamAfrica/The-Documentation-Compendium.svg)](https://github.com/JetstreamAfrica/jetcur-sdk/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+</div>
+
+---
+
+
+[//]: # (<!-- TOC -->)
 * [Curacel Grow API](#curacel-grow-api)
   * [Installation](#installation)
   * [Example](#example)
   * [Usage](#usage)
   * [Available DataObjects](#available-dataobjects)
-    * [AttachmentData](#attachmentdata)
-    * [ClaimData](#claimdata)
-    * [ConvertQuoteData](#convertquotedata)
-    * [CreditRequestData](#creditrequestdata)
-  * [IndividualCustomerData](#individualcustomerdata)
-  * [PaymentDetailsData](#paymentdetailsdata)
-  * [ProductData](#productdata)
-  * [ProofOfAddressData](#proofofaddressdata)
-  * [QuotationData](#quotationdata)
-  * [QuotationUpdateData](#quotationupdatedata)
-  * [VoucherData](#voucherdata)
-  * [WalletData](#walletdata)
   * [Available Services & Implementations](#available-services--implementations)
-      * [AttachmentService](#attachmentservice)
-      * [ClaimService](#claimservice)
-      * [CreditRequestService](#creditrequestservice)
-      * [CustomerService](#customerservice)
-      * [PolicyService](#policyservice)
-      * [ProductService](#productservice)
-      * [QuotationService](#quotationservice)
-      * [WalletService](#walletservice)
-<!-- TOC -->
+
+[//]: # (<!-- TOC -->)
 
 # Curacel Grow API
 
@@ -35,24 +29,35 @@ This project is an integration of Curacel Grow Features, where each feature has 
 ## Installation
 
 1. Update composer.json and add a repository:
-
-```JSON
-{
-    "require": {
-        "jetstream/curacel": "dev-development"
-    },
-    
-  "repositories": [
+    ```JSON
     {
-      "type": "vcs",
-      "url": "git@github.com:JetstreamAfrica/jetcur-sdk.git"
+        "require": {
+            "jetstream/curacel": "dev-development"
+        },
+        
+      "repositories": [
+        {
+          "type": "vcs",
+          "url": "git@github.com:JetstreamAfrica/jetcur-sdk.git"
+        }
+      ]
     }
-  ]
-}
-```
-Ensure you create an SSH Key on the machine on which you want to install the package.
+    ```
 
-1. Run composer
+2. The above section points to  a private repository, hence you would need to provide composer with a personal access
+   token from GitHub to successfully pull the contents of the repo.
+   For local development, it is recommended that you create
+   a gitignored `auth.json` file with the following content, in the root of your project:
+
+    ```json
+    {
+      "github-oauth": {
+          "github.com": "token"
+      }
+    }
+    ```
+
+3. Run composer
    Now just run ```composer update``` or ```composer install``` as usual.
 
 ## Example
@@ -217,7 +222,8 @@ class ConvertQuoteData extends  Data
 }
 ```
 
-### CreditRequestData
+### CreditRequestData 
+    
 ```php 
 <?php
 class CreditRequestData extends  Data
@@ -380,7 +386,7 @@ class WalletData extends  Data
 
 
 
-## Available Services & Implementations
+## ⚙ Available Services & Implementations
 
 #### AttachmentService
 
@@ -406,6 +412,9 @@ updateDischargeVoucher(VoucherData $voucherData);
 ```
 
 #### CreditRequestService
+
+    implementation of the credit request endpoints
+    [Click Here](https://docs.curacel.co/reference/addcreditrequest)
 
 ```php 
 <?php
@@ -496,6 +505,12 @@ getTransactions(array $params = []);
 initializeTopUp(WalletData $walletData);
 ```
 
+## ⛏️ Built Using <a name = "built_using"></a>
+- [PHP](https://www.php.net/) - Language
+- [Orchestra Testbench](https://github.com/orchestral/testbench) - Library
+
+## ✍️ Authors <a name = "authors"></a>
+- [Melchizedek](https://github.com/listermatrix) - Initial work
 
 
 
