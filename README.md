@@ -1,3 +1,31 @@
+<!-- TOC -->
+* [Curacel Grow API](#curacel-grow-api)
+  * [Installation](#installation)
+  * [Example](#example)
+  * [Usage](#usage)
+  * [Available DataObjects](#available-dataobjects)
+    * [AttachmentData](#attachmentdata)
+    * [ClaimData](#claimdata)
+    * [ConvertQuoteData](#convertquotedata)
+    * [CreditRequestData](#creditrequestdata)
+  * [IndividualCustomerData](#individualcustomerdata)
+  * [PaymentDetailsData](#paymentdetailsdata)
+  * [ProductData](#productdata)
+  * [ProofOfAddressData](#proofofaddressdata)
+  * [QuotationData](#quotationdata)
+  * [QuotationUpdateData](#quotationupdatedata)
+  * [VoucherData](#voucherdata)
+  * [WalletData](#walletdata)
+  * [Available Services & Implementations](#available-services--implementations)
+      * [AttachmentService](#attachmentservice)
+      * [ClaimService](#claimservice)
+      * [CreditRequestService](#creditrequestservice)
+      * [CustomerService](#customerservice)
+      * [PolicyService](#policyservice)
+      * [ProductService](#productservice)
+      * [QuotationService](#quotationservice)
+      * [WalletService](#walletservice)
+<!-- TOC -->
 
 # Curacel Grow API
 
@@ -10,6 +38,10 @@ This project is an integration of Curacel Grow Features, where each feature has 
 
 ```JSON
 {
+    "require": {
+        "jetstream/curacel": "dev-development"
+    },
+    
   "repositories": [
     {
       "type": "vcs",
