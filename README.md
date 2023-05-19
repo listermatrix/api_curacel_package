@@ -17,7 +17,7 @@
   * [Example](#example)
   * [Usage](#usage)
   * [Available DataObjects](#available-dataobjects)
-  * [Available Services & Implementations](#available-services--implementations)
+  * [Available Service Classes](#available-services--implementations)
 
 [//]: # (<!-- TOC -->)
 
@@ -386,7 +386,7 @@ class WalletData extends  Data
 
 
 
-## ⚙ Available Services & Implementations
+## Available Services & Implementations
 
 #### AttachmentService
 
