@@ -399,6 +399,8 @@ downloadAttachment(int $id);
 ```
 
 #### ClaimService
+implementation of the Claim  endpoints
+[Click Here](https://docs.curacel.co/reference/createnewclaimfrompolicy)
 ```php 
 <?php
 
@@ -413,8 +415,8 @@ updateDischargeVoucher(VoucherData $voucherData);
 
 #### CreditRequestService
 
-    implementation of the credit request endpoints
-    [Click Here](https://docs.curacel.co/reference/addcreditrequest)
+implementation of the credit request endpoints
+[Click Here](https://docs.curacel.co/reference/addcreditrequest)
 
 ```php 
 <?php
@@ -427,6 +429,8 @@ getExtraAmount(array $params = []);
 ```
 
 #### CustomerService
+implementation of the Customer  endpoints
+[Click Here](https://docs.curacel.co/reference/createnewcustomer)
 
 ```php 
 <?php
@@ -443,7 +447,8 @@ deleteCustomer($reference);
 ```
 
 #### PolicyService
-
+implementation of the Policy  endpoints
+[Click Here](https://docs.curacel.co/reference/listcustomerpolicies)
 ```php
 <?php
 
@@ -456,6 +461,8 @@ getPolicyResource(string $identifier,array $params = []);
 
 
 #### ProductService
+implementation of the Product  endpoints
+[Click Here](https://docs.curacel.co/reference/list-product-types)
 ```php
 <?php 
 getInsuranceProduct(int $id,array $params = []);
@@ -474,7 +481,8 @@ authorizeOrder(array $payload);
 ```
 
 #### QuotationService
-
+implementation of the Quotation  endpoints
+[Click Here](https://docs.curacel.co/reference/createinsurancequote)
 ```php
 <?php
  
@@ -494,7 +502,8 @@ deleteQuotation(string $quote,array $params = []);
 ```
 
 #### WalletService
-
+implementation of the Wallet endpoints
+[Click Here](https://docs.curacel.co/reference/initiatetopup)
 ```php
 <?php
  
@@ -508,6 +517,9 @@ initializeTopUp(WalletData $walletData);
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [PHP](https://www.php.net/) - Language
 - [Orchestra Testbench](https://github.com/orchestral/testbench) - Library
+
+## ⛏️ TODO <a name = "todo"></a>
+- Implement Object Mocking 
 
 ## ✍️ Authors <a name = "authors"></a>
 - [Melchizedek](https://github.com/listermatrix) - Initial work
