@@ -2,6 +2,7 @@
 
 namespace Jetstream\Curacel\Package\Services;
 
+use Jetstream\Curacel\DataObjects\OrganisationCustomerData;
 use Jetstream\Curacel\Package\Config\CuracelApiConfig;
 use Jetstream\Curacel\Package\Interface\ICustomerService;
 use Jetstream\Curacel\DataObjects\IndividualCustomerData;
@@ -34,19 +35,19 @@ class CustomerService extends CuracelApiConfig implements ICustomerService
     }
 
     /**
-     * @param IndividualCustomerData $customerData
+     * @param IndividualCustomerData|OrganisationCustomerData $customerData
      * @return array
      */
-    public function createCustomer(IndividualCustomerData $customerData): array
+    public function createCustomer(IndividualCustomerData|OrganisationCustomerData $customerData): array
     {
         return $this->post($this->path,$customerData->toArray());
     }
 
     /**
-     * @param IndividualCustomerData $customerData
+     * @param IndividualCustomerData|OrganisationCustomerData $customerData
      * @return array
      */
-    public function updateCustomer(IndividualCustomerData $customerData): array
+    public function updateCustomer(IndividualCustomerData|OrganisationCustomerData $customerData): array
     {
         return $this->patch("{$this->path}/{$customerData->ref}",$customerData->toArray());
     }

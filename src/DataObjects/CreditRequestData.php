@@ -10,7 +10,7 @@ class CreditRequestData extends  Data
     public function __construct(
         public string $ref,
         public string|Optional $narration,
-        public IndividualCustomerData|Optional  $customer,
+        public IndividualCustomerData|OrganisationCustomerData|Optional  $customer,
         public float $total_amount_paid,
         public float $item_original_price,
     ) {
